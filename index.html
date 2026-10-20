@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 60px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Vitoria do time</h2>
+    <h1 id="total">0</h1>
+    <button id="btn">+1 Vitória</button>
+
+    <script src="https://cdn.jsdelivr.net.npm.@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://emoqqydkkiaeyJhbGciOiJIUzI1NiIsInRxltgiryed.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_B2_yfFmXLFvFSuE9fkc5Sw_1zuiqEMasb_secret_ER2PZXiLMWJso9JTMtgTRg_aV8X5fBH';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const totaLEL = document.getElementById('total');
+        let qtd = 0;
+
+        // Busca valor inicial salvo no banco
+        supabase.from('placar').select('vitorias').eq('id', 1).single().then(({data}) => {
+            if (data) {
+                qtd = data.vitorias
+                totalEl.textContent = qtd
+            }
+        })
+
+        // Soma 1 no clique e atualiza o Supabase
+        document.getElementById
+    </script>
+</body>
+</html>
